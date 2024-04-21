@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home Page{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col-12">
+          <h3>Upload your file:</h3>
+          <p>Currently we are working with two databases: customer spending score database and airline passanger satisfaction database.</p>
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-6 text-center m-auto mt-5">
+              <input class="form-control form-control-md" id="file-input" type="file" name="file">
+            </div>
+            <div class="col-6 text-center m-auto mt-5">
+              <input type="submit" value="Upload" class="btn btn-lg btn-primary">
+            </div>
+          </form>
+      </div>
+  </div>
+</div>
+{% endblock %}

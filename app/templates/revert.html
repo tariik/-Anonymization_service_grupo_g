@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home Page{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col-12">
+          <h3>Upload your data and decryption key:</h3>
+          <p>After you upload the anonymized dataset and the decryption key, the data will be reverted.</p>
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-6 text-center m-auto mt-5">
+                <h5 class="mb-3"><i class="bi-file-lock"></i> Anonymized Dataset</h5>
+                <input class="form-control form-control-md" id="file-data" type="file" name="file-data" accept=".csv">
+              </div>
+              <div class="col-6 text-center m-auto mt-5">
+                <h5 class="mb-3"><i class="bi-key"></i> Decryption key</h5>
+                <input class="form-control form-control-md" id="file-key" type="file" name="file-key" accept=".enc">
+              </div>
+              <div class="col-12 text-center m-auto mt-5">
+                <input type="submit" value="Upload" class="btn btn-lg btn-primary">
+              </div>
+            </div>
+          </form>
+      </div>
+  </div>
+</div>
+{% endblock %}

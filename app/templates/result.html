@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<div class="container text-center result-container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mb-2 border-bottom border-3">RESULT</h3>
+            <div class="row">
+                <div class="col-6">
+                    <h4 class="mb-2">Original</h4>
+                    <div id="table1" class="table-responsive">
+                        <table class="table table-striped table-hover table-light border">
+                            <thead>
+                                <tr>
+                                    {% if customer_list_anon %}
+                                    <th>CustomerID</th>
+                                    <th>Gender</th>
+                                    <th>Age</th>
+                                    <th>Annual Income</th>
+                                    <th>Profession</th>
+                                    <th>Work Experience</th>
+                                    <th>Family Size</th>
+                                    <th>Spending Score</th>
+                                    {% elif passengers_list_anon %}
+                                    <th>CustomerID</th>
+                                    <th>Gender</th>
+                                    <th>Customer Type</th>
+                                    <th>Age</th>
+                                    <th>Type of Travel</th>
+                                    <th>Class</th>
+                                    <th>Flight Distance</th>
+                                    <th>Departure/Arrival time convenient</th>
+                                    <th>On-board service</th>
+                                    <th>Baggage handling</th>
+                                    <th>Checkin service</th>
+                                    <th>Inflight service</th>
+                                    <th>Departure Delay (min)</th>
+                                    <th>Arrival Delay (min)</th>
+                                    <th>Satisfaction<th>
+                                    {% endif %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if customer_list_anon %}
+                                {% for customer in customer_list_orig %}
+                                <tr>
+                                    <td>{{ customer.CustomerID }}</td>
+                                    <td>{{ customer.Gender }}</td>
+                                    <td>{{ customer.Age }}</td>
+                                    <td>{{ customer.Annual_Income }}</td>
+                                    <td>{{ customer.Profession }}</td>
+                                    <td>{{ customer.Work_Experience }}</td>
+                                    <td>{{ customer.Family_Size }}</td>
+                                    <td>{{ customer.Spending_Score }}</td>
+                                </tr>
+                                {% endfor %}
+                                {% elif passengers_list_anon %}
+                                {% for passenger in passengers_list_orig %}
+                                <tr>
+                                    <td>{{ passenger.CustomerID }}</td>
+                                    <td>{{ passenger.Gender }}</td>
+                                    <td>{{ passenger.Customer_Type }}</td>
+                                    <td>{{ passenger.Age }}</td>
+                                    <td>{{ passenger.Travel_Type }}</td>
+                                    <td>{{ passenger.Class }}</td>
+                                    <td>{{ passenger.Flight_Distance }}</td>
+                                    <td>{{ passenger.Departure_Arrival_time_convenient }}</td>
+                                    <td>{{ passenger.On_board_service }}</td>
+                                    <td>{{ passenger.Baggage_handling }}</td>
+                                    <td>{{ passenger.Checkin_service }}</td>
+                                    <td>{{ passenger.Inflight_service }}</td>
+                                    <td>{{ passenger.Departure_Delay_Mins }}</td>
+                                    <td>{{ passenger.Arrival_Delay_Mins }}</td>
+                                    <td>{{ passenger.satisfaction }}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h4 class="mb-2">Anonymized</h4>
+                    <div id="table2" class="table-responsive">
+                        <table class="table table-striped table-hover table-light border">
+                            <thead>
+                                <tr>
+                                    {% if customer_list_anon %}
+                                    <th>CustomerID</th>
+                                    <th>Gender</th>
+                                    <th>Age</th>
+                                    <th>Annual Income</th>
+                                    <th>Profession</th>
+                                    <th>Work Experience</th>
+                                    <th>Family Size</th>
+                                    <th>Spending Score</th>
+                                    {% elif passengers_list_anon %}
+                                    <th>CustomerID</th>
+                                    <th>Gender</th>
+                                    <th>Customer Type</th>
+                                    <th>Age</th>
+                                    <th>Type of Travel</th>
+                                    <th>Class</th>
+                                    <th>Flight Distance</th>
+                                    <th>Departure/Arrival time convenient</th>
+                                    <th>On-board service</th>
+                                    <th>Baggage handling</th>
+                                    <th>Checkin service</th>
+                                    <th>Inflight service</th>
+                                    <th>Departure Delay (min)</th>
+                                    <th>Arrival Delay (min)</th>
+                                    <th>Satisfaction<th>
+                                    {% endif %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if customer_list_anon %}
+                                {% for customer in customer_list_anon %}
+                                <tr>
+                                    <td>{{ customer.CustomerID|slice:"0:10" }}...</td>
+                                    <td>{{ customer.Gender }}</td>
+                                    <td>{{ customer.Age }}</td>
+                                    <td>{{ customer.Annual_Income }}</td>
+                                    <td>{{ customer.Profession }}</td>
+                                    <td>{{ customer.Work_Experience }}</td>
+                                    <td>{{ customer.Family_Size }}</td>
+                                    <td>{{ customer.Spending_Score }}</td>
+                                </tr>
+                                {% endfor %}
+                                {% elif passengers_list_anon %}
+                                {% for passenger in passengers_list_anon %}
+                                <tr>
+                                    <td>{{ passenger.CustomerID|slice:"0:10" }}...</td>
+                                    <td>{{ passenger.Gender }}</td>
+                                    <td>{{ passenger.Customer_Type }}</td>
+                                    <td>{{ passenger.Age }}</td>
+                                    <td>{{ passenger.Travel_Type }}</td>
+                                    <td>{{ passenger.Class }}</td>
+                                    <td>{{ passenger.Flight_Distance }}</td>
+                                    <td>{{ passenger.Departure_Arrival_time_convenient }}</td>
+                                    <td>{{ passenger.On_board_service }}</td>
+                                    <td>{{ passenger.Baggage_handling }}</td>
+                                    <td>{{ passenger.Checkin_service }}</td>
+                                    <td>{{ passenger.Inflight_service }}</td>
+                                    <td>{{ passenger.Departure_Delay_Mins }}</td>
+                                    <td>{{ passenger.Arrival_Delay_Mins }}</td>
+                                    <td>{{ passenger.satisfaction }}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <a href="/media/{{filename}}" class="btn btn-info"><i class="bi-file-earmark"></i> Download original data</a>
+                </div>
+                <div class="col-6 d-flex justify-content-around">
+                    <a href="/media/{{filename_anon}}" class="btn btn-success"><i class="bi-file-lock"></i> Download anonymized data</a>
+                    <a href="/media/{{key_filename}}" class="btn btn-warning"><i class="bi-key"></i> Download decryption key</a>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <a href="/upload" class="btn btn-danger"><i class="bi-arrow-left-circle"></i> Go back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}
+{% block additional_scripts %}
+<script>
+    const table1 = document.getElementById('table1');
+    const table2 = document.getElementById('table2');
+
+    table1.addEventListener('scroll', () => {
+        table2.scrollLeft = table1.scrollLeft;
+    });
+
+    table2.addEventListener('scroll', () => {
+        table1.scrollLeft = table2.scrollLeft;
+    });
+</script>
+{% endblock %}

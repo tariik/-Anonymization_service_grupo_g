@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+        <meta name="description" content="" >
+        <meta name="author" content="Patxi Juaristi Pagegi" >
+        <title>{% block title %}Django Sample Web{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" >
+        <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" >
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" >
+        {% block css %}{% endblock %}
+    </head>
+<body class="text-center">
+  
+    <div class="col-12 cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+          <div class="inner">
+            <a href="/"><h3 class="masthead-brand">Anonymization</h3></a>
+            <nav class="nav nav-masthead justify-content-center">
+              <a class="nav-link active" href="/upload">Upload</a>
+              <a class="nav-link active" href="/revert">Revert</a>
+            </nav>
+          </div>
+        </header>
+    
+        <main role="main" class="inner cover">{% block content %}{% endblock %}</main>
+  <!-- Footer-->
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Security and privacy in application environments. Group A.</p>
+    </div>
+  </footer>
+  
+  </div>
+    <script src="{% static 'vendor/jquery-3.6.0.min.js' %}"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main_home.js' %}"></script>
+    {% block additional_scripts %}{% endblock %}
+</body>
+
+</html>
